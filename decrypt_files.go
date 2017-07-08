@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	// It's used to control verbose mode
+	// VerboseMode It's used to control verbose mode
 	VerboseMode = false
 )
 

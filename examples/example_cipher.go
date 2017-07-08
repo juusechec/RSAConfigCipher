@@ -104,7 +104,7 @@ func main() {
 
 	ciphertext, err := rsa.EncryptOAEP(sha256.New(), rng, rsaPublicKey, secretMessage, label)
 	if err != nil {
-		panic("Error from encryption: %s", err)
+		panic("Error from encryption: " + err.Error())
 	}
 
 	// Since encryption is a randomized function, ciphertext will be
@@ -121,7 +121,7 @@ func main() {
 
 	plaintext, err := rsa.DecryptOAEP(sha256.New(), rng2, rsaPrivateKey, ciphertext, label)
 	if err != nil {
-		panic("Error from decryption: %s\n", err)
+		panic("Error from decryption:" + err.Error())
 	}
 
 	fmt.Printf("Plaintext: %s\n", string(plaintext))

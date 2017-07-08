@@ -21,11 +21,11 @@ const (
 var (
 	rsaPrivateKey *rsa.PrivateKey
 	rsaPublicKey  *rsa.PublicKey
-	// It's used to control verbose mode
-	VerboseMode   = false
+	// VerboseMode It's used to control verbose mode
+	VerboseMode = false
 )
 
-// This is for Encrypt single Value
+// EncryptValue This is for Encrypt single Value
 func EncryptValue(secretMessage string) (string, error) {
 	readPemFiles(false)
 
@@ -45,7 +45,7 @@ func EncryptValue(secretMessage string) (string, error) {
 	return ciphertextHex, nil
 }
 
-// This is for Decrypt single Value
+// DecryptValue This is for Decrypt single Value
 func DecryptValue(ciphertextHex string) (string, error) {
 	readPemFiles(true)
 
