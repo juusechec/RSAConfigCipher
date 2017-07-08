@@ -19,6 +19,8 @@ rm -rf example_config.{yml,php}
 ./rsaconfigcipher -h
 ./rsaconfigcipher --help
 
+./rsaconfigcipher --version
+
 echo "I WANT TO ENCRYPT" | ./rsaconfigcipher
 
 rm -rf ./rsaconfigcipher

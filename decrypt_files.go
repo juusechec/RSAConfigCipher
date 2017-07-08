@@ -34,8 +34,10 @@ func main() {
 			VerboseMode = true
 			continue
 		} else if inputfiles[i] == "--help" || inputfiles[i] == "-h" {
-			inputfiles = removeIndex(inputfiles, i)
 			showHelp()
+			os.Exit(0)
+		} else if inputfiles[i] == "--version" {
+			showVersion()
 			os.Exit(0)
 		}
 	}
@@ -128,7 +130,20 @@ func showHelp() {
 	fmt.Println(`
 Usage: rsaconfigcipher [OPTION]... [FILE]...
 
-  -h, --help                 show help
-  -v, --verbose              verbose mode
+	-v, --verbose              explain what is being done
+  -h, --help                 display this help and exit
+	    --version              output version information and exit
+	`)
+}
+
+func showVersion() {
+	fmt.Println(`
+rsaconfigcipher (juusechec Tools) 1.1.0
+Copyright (C) 2017 Jorge Ulises Useche Cuellar.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by juusechec.
 	`)
 }

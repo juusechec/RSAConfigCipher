@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/juusechec/RSAConfigCipher.svg?branch=master)](https://travis-ci.org/juusechec/RSAConfigCipher)
 [![Go Report Card](https://goreportcard.com/badge/github.com/juusechec/RSAConfigCipher?branch=master)](https://goreportcard.com/report/github.com/juusechec/RSAConfigCipher)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 # RSAConfigCipher
 
@@ -49,7 +50,7 @@ transformation.
 find . -name "*.rsa" -exec ./rsaconfigcipher {} \;
 ```
 
-## See Help
+## See help
 For more options you can use:
 ```bash
 ./rsaconfigcipher --help
@@ -60,12 +61,21 @@ For more options you can use:
 go build -o rsaconfigcipher decrypt_files.go
 ```
 
-## Install
+## Install as normal user application
+For normal user programs not managed by the distribution package.
 ```bash
-wget "https://github.com/juusechec/RSAConfigCipher/releases/download/v1.0.0/rsaconfigcipher" && chmod +x rsaconfigcipher && sudo mv rsaconfigcipher /usr/local/bin/
+wget "https://github.com/juusechec/RSAConfigCipher/releases/download/v1.1.0/rsaconfigcipher" && chmod +x rsaconfigcipher && sudo mv rsaconfigcipher /usr/local/bin/
+```
+
+## Alternative install
+Its important because sometimes root user haven't */usr/local/bin/* in *PATH*
+environment variable.
+```bash
+wget "https://github.com/juusechec/RSAConfigCipher/releases/download/v1.1.0/rsaconfigcipher" && chmod +x rsaconfigcipher && sudo mv rsaconfigcipher /usr/bin/
 ```
 
 ## Uninstall
 ```
-sudo rm /usr/local/bin/rsaconfigcipher
+sudo rm /usr/local/bin/rsaconfigcipher # for normal user
+sudo rm /usr/bin/rsaconfigcipher # for alternative install
 ```
