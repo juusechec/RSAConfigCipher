@@ -4,22 +4,19 @@ import (
 	"./cipher_value"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"regexp"
 	"strings"
 )
 
+var (
+	Verbose = false
+)
+
 func main() {
 	// https://gobyexample.com/command-line-arguments
 	// `os.Args` provides access to raw command-line
-	// arguments. Note that the first value in this slice
-	// is the path to the program, and `os.Args[1:]`
-	// holds the arguments to the program.
-	//argsWithProg := os.Args
-	//argsWithoutProg := os.Args[1:]
 
-	// You can get individual args with normal indexing.
 	if len(os.Args) == 1 {
 		fmt.Println("Execute with rsa archive(s) name(s) as param(s):")
 		execFilename := os.Args[0]
@@ -29,26 +26,41 @@ func main() {
 	}
 
 	inputfiles := os.Args[1:]
+
 	for i := 0; i < len(inputfiles); i++ {
-		inputfile := inputfiles[i]
+		if inputfiles[i] == "-v" {
+			inputfiles = RemoveIndex(inputfiles, i)
+			Verbose = true
+			continue
+		} else if inputfiles[i] == "--help" || inputfiles[i] == "-h" {
+			inputfiles = RemoveIndex(inputfiles, i)
+			showHelp()
+			os.Exit(0)
+		}
+	}
+
+	cipher_value.Verbose = Verbose
+
+	for key := range inputfiles {
+		inputfile := inputfiles[key]
 		var data = ReadFile(inputfile)
 
 		output, err := UpdateText(string(data))
 		if err != nil {
-			log.Fatal("Error from UpdateText: %s\n", err)
+			panic("Error from UpdateText:" + err.Error())
 			return
 		}
 
-		fmt.Println("File output:")
-		fmt.Println(output)
+		if Verbose {
+			fmt.Println("File output:")
+			fmt.Println(output)
+		}
 		newfilename := GetFilename(inputfile)
 		WriteFile(newfilename, output)
-
-		fmt.Println("A file has been created:", newfilename)
+		if Verbose {
+			fmt.Println("A file has been created:", newfilename)
+		}
 	}
-
-	//fmt.Println(argsWithProg)
-	//fmt.Println(argsWithoutProg)
 }
 
 //https://play.golang.org/p/gtU4HjbYoZ
@@ -76,7 +88,7 @@ func UpdateText(input string) (string, error) {
 func ReadFile(filename string) []byte {
 	fileData, err := ioutil.ReadFile(filename)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	return fileData
 }
@@ -84,13 +96,16 @@ func ReadFile(filename string) []byte {
 func WriteFile(filename string, data string) {
 	err := ioutil.WriteFile(filename, []byte(data), 0644)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 }
 
 func GetFilename(filename string) string {
 	re := regexp.MustCompile(`(.*)\.`)
 	result := re.FindString(filename)
+	if len(result) == 0 {
+		return filename
+	}
 	result = result[:len(result)-1]
 	return string(result)
 }
@@ -103,4 +118,17 @@ func ReadPrompt() {
 	fmt.Print("The encrypted text is:\n")
 	ciphertext = "{{%rsa:" + ciphertext + "%}}\n"
 	fmt.Print(ciphertext)
+}
+
+func RemoveIndex(slice []string, index int) []string {
+	return append(slice[:index], slice[index+1:]...)
+}
+
+func showHelp() {
+	fmt.Println(`
+Usage: rsaconfigcipher [OPTION]... [FILE]...
+
+  -h, --help                 show help
+  -v, --verbose              verbose mode
+	`)
 }

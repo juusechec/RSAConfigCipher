@@ -11,7 +11,6 @@ import (
 	"encoding/pem"
 	"fmt"
 	"io/ioutil"
-	"log"
 )
 
 const (
@@ -31,7 +30,7 @@ func init() {
 	// Leer llave pública.
 	pubPEMData, err := ioutil.ReadFile(rsaPublicKeyPath)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	block, rest := pem.Decode([]byte(pubPEMData))
@@ -64,7 +63,7 @@ func init() {
 
 	privPEMData, err := ioutil.ReadFile(rsaPrivateKeyPath)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	block, rest = pem.Decode([]byte(privPEMData))
@@ -105,7 +104,7 @@ func main() {
 
 	ciphertext, err := rsa.EncryptOAEP(sha256.New(), rng, rsaPublicKey, secretMessage, label)
 	if err != nil {
-		log.Fatal("Error from encryption: %s", err)
+		panic("Error from encryption: %s", err)
 		return
 	}
 
@@ -123,7 +122,7 @@ func main() {
 
 	plaintext, err := rsa.DecryptOAEP(sha256.New(), rng2, rsaPrivateKey, ciphertext, label)
 	if err != nil {
-		log.Fatal("Error from decryption: %s\n", err)
+		panic("Error from decryption: %s\n", err)
 		return
 	}
 

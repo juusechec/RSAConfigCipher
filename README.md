@@ -14,6 +14,7 @@ password: "{{%rsa:560eb2b9758f0e258a31d2a97c2ee86a60a450d4b5260f2091db0e22e3fbf2
 ```
 
 When is decrypted.
+
 ```yml
 driver:   pdo_pgsql
 host:     "%database_host%"
@@ -25,13 +26,29 @@ charset:  UTF8
 ```
 
 ## Encrypt values
-You can execute ***./rsaconfigcipher*** and paste the desired value, then Intro key. The result can be copy in config file
-replacing the unencrypted value.
+You can execute ***./rsaconfigcipher*** and paste the desired value, then Intro
+key. The result can be copy in configuration file replacing the unencrypted
+value.
 
 ## Generate pair of private and public key
 ```
 openssl genrsa -out rsakey.pem 2048
 openssl rsa -in rsakey.pem -pubout > rsakey.pem.pub
+```
+
+## Execute for all files in path
+It's recommended rename files with extension "rsa" or whatever, example
+***archivo.ext*** would be renamed as ***archivo.ext.rsa*** before
+transformation.
+
+```bash
+find . -name "*.rsa" -exec ./rsaconfigcipher {} \;
+```
+
+## See Help
+For more options you can use:
+```bash
+./rsaconfigcipher --help
 ```
 
 ## Build
