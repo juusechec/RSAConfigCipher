@@ -21,7 +21,7 @@ const (
 var (
 	rsaPrivateKey *rsa.PrivateKey
 	rsaPublicKey  *rsa.PublicKey
-	Verbose       = false
+	VerboseMode   = false
 )
 
 func EncryptValue(secretMessage string) (string, error) {
@@ -64,7 +64,7 @@ func DecryptValue(ciphertextHex string) (string, error) {
 }
 
 func readPemFiles(readPrivateKey bool) {
-	if Verbose {
+	if VerboseMode {
 		fmt.Println("Reading and parse key files...")
 
 		fmt.Println("Reading public key.")
@@ -86,7 +86,7 @@ func readPemFiles(readPrivateKey bool) {
 		panic("failed to parse DER encoded public key: " + err.Error())
 	}
 
-	if Verbose {
+	if VerboseMode {
 		switch pub := pub.(type) {
 		case *rsa.PublicKey:
 			fmt.Println("pub is of type RSA:", pub)
@@ -108,7 +108,7 @@ func readPemFiles(readPrivateKey bool) {
 		return
 	}
 
-	if Verbose {
+	if VerboseMode {
 		fmt.Println("Reading private key.")
 	}
 
@@ -127,7 +127,7 @@ func readPemFiles(readPrivateKey bool) {
 		panic("failed to parse PKCS1 private key: " + err.Error())
 	}
 
-	if Verbose {
+	if VerboseMode {
 		switch priv := interface{}(priv).(type) {
 		case *rsa.PrivateKey:
 			fmt.Println("priv is of type RSA:", priv)
@@ -143,7 +143,7 @@ func readPemFiles(readPrivateKey bool) {
 	}
 	rsaPrivateKey = priv
 
-	if Verbose {
+	if VerboseMode {
 		fmt.Println("Finish Reading and parse key files!!!")
 	}
 }

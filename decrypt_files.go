@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	Verbose = false
+	VerboseMode = false
 )
 
 func main() {
@@ -28,9 +28,9 @@ func main() {
 	inputfiles := os.Args[1:]
 
 	for i := 0; i < len(inputfiles); i++ {
-		if inputfiles[i] == "-v" {
+		if inputfiles[i] == "--verbose" || inputfiles[i] == "-v" {
 			inputfiles = RemoveIndex(inputfiles, i)
-			Verbose = true
+			VerboseMode = true
 			continue
 		} else if inputfiles[i] == "--help" || inputfiles[i] == "-h" {
 			inputfiles = RemoveIndex(inputfiles, i)
@@ -39,7 +39,7 @@ func main() {
 		}
 	}
 
-	cipher_value.Verbose = Verbose
+	cipher_value.VerboseMode = VerboseMode
 
 	for key := range inputfiles {
 		inputfile := inputfiles[key]
@@ -51,13 +51,13 @@ func main() {
 			return
 		}
 
-		if Verbose {
+		if VerboseMode {
 			fmt.Println("File output:")
 			fmt.Println(output)
 		}
 		newfilename := GetFilename(inputfile)
 		WriteFile(newfilename, output)
-		if Verbose {
+		if VerboseMode {
 			fmt.Println("A file has been created:", newfilename)
 		}
 	}
