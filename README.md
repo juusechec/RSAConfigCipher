@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/juusechec/RSAConfigCipher.svg?branch=master)](https://travis-ci.org/juusechec/RSAConfigCipher)
-[![Go Report Card](https://goreportcard.com/badge/github.com/juusechec/RSAConfigCipher)](https://goreportcard.com/report/github.com/juusechec/RSAConfigCipher)
+[![Go Report Card](https://goreportcard.com/badge/github.com/juusechec/RSAConfigCipher?branch=master)](https://goreportcard.com/report/github.com/juusechec/RSAConfigCipher)
+
 # RSAConfigCipher
 
 With this you can create files and encrypt some values in source code.
