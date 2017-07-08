@@ -27,7 +27,7 @@ var (
 func init() {
 	fmt.Println("Reading and parse key files...")
 
-  fmt.Println("Reading public key.")
+	fmt.Println("Reading public key.")
 	// Leer llave pública.
 	pubPEMData, err := ioutil.ReadFile(rsaPublicKeyPath)
 	if err != nil {
@@ -60,7 +60,7 @@ func init() {
 	rsaPublicKey = pub.(*rsa.PublicKey)
 
 	// Leer llave privada.
-  fmt.Println("Reading private key.")
+	fmt.Println("Reading private key.")
 
 	privPEMData, err := ioutil.ReadFile(rsaPrivateKeyPath)
 	if err != nil {
@@ -91,7 +91,7 @@ func init() {
 	fmt.Printf("Got a %T, with remaining data: %q\n", priv, rest)
 	rsaPrivateKey = priv
 
-  fmt.Println("Finish Reading and parse key files!!!")
+	fmt.Println("Finish Reading and parse key files!!!")
 }
 
 func main() {

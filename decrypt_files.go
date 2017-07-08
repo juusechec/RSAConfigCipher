@@ -1,13 +1,13 @@
 package main
 
 import (
+	"./cipher_value"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
 	"regexp"
 	"strings"
-  "./cipher_value"
 )
 
 func main() {
@@ -24,7 +24,8 @@ func main() {
 		fmt.Println("Execute with rsa archive(s) name(s) as param(s):")
 		execFilename := os.Args[0]
 		fmt.Println(execFilename, "example_config.php.rsa")
-		os.Exit(1)
+		ReadPrompt()
+		return
 	}
 
 	inputfiles := os.Args[1:]
@@ -38,12 +39,12 @@ func main() {
 			return
 		}
 
-	  fmt.Println("File output:")
+		fmt.Println("File output:")
 		fmt.Println(output)
-	  newfilename := GetFilename(inputfile)
-	  WriteFile(newfilename, output)
+		newfilename := GetFilename(inputfile)
+		WriteFile(newfilename, output)
 
-	  fmt.Println("A file has been created:", newfilename)
+		fmt.Println("A file has been created:", newfilename)
 	}
 
 	//fmt.Println(argsWithProg)
@@ -65,7 +66,7 @@ func UpdateText(input string) (string, error) {
 		tagEnd := contentEnd + len("%}}")
 		allParam := input[tagStart:tagEnd]
 		content := input[contentStart:contentEnd]
-    unciphertext,_ := cipher_value.DecryptValue(content)
+		unciphertext, _ := cipher_value.DecryptValue(content)
 		replaceTagText := unciphertext
 		output = strings.Replace(output, allParam, replaceTagText, -1)
 	}
@@ -88,8 +89,18 @@ func WriteFile(filename string, data string) {
 }
 
 func GetFilename(filename string) string {
-  re := regexp.MustCompile(`(.*)\.`)
+	re := regexp.MustCompile(`(.*)\.`)
 	result := re.FindString(filename)
-  result = result[:len(result)-1]
-  return string(result)
+	result = result[:len(result)-1]
+	return string(result)
+}
+
+func ReadPrompt() {
+	fmt.Print("Enter text to encrypt:\n")
+	var input string
+	fmt.Scanln(&input)
+	ciphertext, _ := cipher_value.EncryptValue(input)
+	fmt.Print("The encrypted text is:\n")
+	ciphertext = "{{%rsa:" + ciphertext + "%}}\n"
+	fmt.Print(ciphertext)
 }

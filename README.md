@@ -28,7 +28,13 @@ charset:  UTF8
 You can execute ***./rsaconfigcipher*** and paste the desired value, then Intro key. The result can be copy in config file
 replacing the unencrypted value.
 
-# Build
+## Generate pair of private and public key
+```
+openssl genrsa -out rsakey.pem 2048
+openssl rsa -in rsakey.pem -pubout > rsakey.pem.pub
+```
+
+## Build
 ```bash
 go build -o rsaconfigcipher decrypt_files.go
 ```
