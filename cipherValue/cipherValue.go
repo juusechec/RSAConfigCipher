@@ -1,4 +1,4 @@
-package cipher_value
+package cipherValue
 
 import (
 	"crypto/dsa"
@@ -21,9 +21,11 @@ const (
 var (
 	rsaPrivateKey *rsa.PrivateKey
 	rsaPublicKey  *rsa.PublicKey
+	// It's used to control verbose mode
 	VerboseMode   = false
 )
 
+// This is for Encrypt single Value
 func EncryptValue(secretMessage string) (string, error) {
 	readPemFiles(false)
 
@@ -37,12 +39,13 @@ func EncryptValue(secretMessage string) (string, error) {
 	ciphertext, err := rsa.EncryptOAEP(sha256.New(), rng, rsaPublicKey, secretMessageByte, label)
 	if err != nil {
 		panic("Error from encryption: " + err.Error())
-		return "", err
+		//return "", err
 	}
 	ciphertextHex := hex.EncodeToString(ciphertext)
 	return ciphertextHex, nil
 }
 
+// This is for Decrypt single Value
 func DecryptValue(ciphertextHex string) (string, error) {
 	readPemFiles(true)
 
@@ -57,7 +60,7 @@ func DecryptValue(ciphertextHex string) (string, error) {
 	plaintext, err := rsa.DecryptOAEP(sha256.New(), rng, rsaPrivateKey, ciphertext, label)
 	if err != nil {
 		panic("Error from decryption: " + err.Error())
-		return "", err
+		//return "", err
 	}
 
 	return string(plaintext), nil
