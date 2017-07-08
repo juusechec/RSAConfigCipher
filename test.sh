@@ -21,4 +21,6 @@ rm -rf example_config.{yml,php}
 
 echo "I WANT TO ENCRYPT" | ./rsaconfigcipher
 
+rm -rf ./rsaconfigcipher
+
 echo "Test Complete Successfully"
