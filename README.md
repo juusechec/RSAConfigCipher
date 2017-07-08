@@ -55,3 +55,13 @@ For more options you can use:
 ```bash
 go build -o rsaconfigcipher decrypt_files.go
 ```
+
+## Install
+```bash
+wget "https://github.com/juusechec/RSAConfigCipher/releases/download/v1.0.0/rsaconfigcipher" && chmod +x rsaconfigcipher && sudo mv rsaconfigcipher /usr/local/bin/
+```
+
+## Uninstall
+```
+sudo rm /usr/local/bin/rsaconfigcipher
+```
