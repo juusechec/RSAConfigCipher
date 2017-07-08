@@ -13,16 +13,15 @@ import (
 	"io/ioutil"
 )
 
-const (
-	rsaPrivateKeyPath = "keys/rsakey.pem"     // openssl genrsa -out rsakey.pem 2048
-	rsaPublicKeyPath  = "keys/rsakey.pem.pub" // openssl rsa -in rsakey.pem -pubout > rsakey.pem.pub
-)
-
 var (
 	rsaPrivateKey *rsa.PrivateKey
 	rsaPublicKey  *rsa.PublicKey
 	// VerboseMode It's used to control verbose mode
 	VerboseMode = false
+	// RsaPrivateKeyPath the path of private key rsa
+	RsaPrivateKeyPath = "keys/rsakey.pem" // openssl genrsa -out rsakey.pem 2048
+	// RsaPublicKeyPath the path of public key rsa
+	RsaPublicKeyPath = "keys/rsakey.pem.pub" // openssl rsa -in rsakey.pem -pubout > rsakey.pem.pub
 )
 
 // EncryptValue This is for Encrypt single Value
@@ -74,7 +73,7 @@ func readPemFiles(readPrivateKey bool) {
 	}
 
 	// Leer llave pública.
-	pubPEMData, err := ioutil.ReadFile(rsaPublicKeyPath)
+	pubPEMData, err := ioutil.ReadFile(RsaPublicKeyPath)
 	if err != nil {
 		panic(err)
 	}
@@ -115,7 +114,7 @@ func readPemFiles(readPrivateKey bool) {
 		fmt.Println("Reading private key.")
 	}
 
-	privPEMData, err := ioutil.ReadFile(rsaPrivateKeyPath)
+	privPEMData, err := ioutil.ReadFile(RsaPrivateKeyPath)
 	if err != nil {
 		panic(err)
 	}

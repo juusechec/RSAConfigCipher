@@ -32,17 +32,27 @@ func main() {
 		if inputfiles[i] == "--verbose" || inputfiles[i] == "-v" {
 			inputfiles = removeIndex(inputfiles, i)
 			VerboseMode = true
-			continue
+			cipherValue.VerboseMode = VerboseMode
+			i = i - 1
+			//continue
 		} else if inputfiles[i] == "--help" || inputfiles[i] == "-h" {
 			showHelp()
 			os.Exit(0)
 		} else if inputfiles[i] == "--version" {
 			showVersion()
 			os.Exit(0)
+		} else if inputfiles[i] == "-p" || inputfiles[i] == "--public-key-path" {
+			cipherValue.RsaPublicKeyPath = inputfiles[i+1]
+			inputfiles = removeIndex(inputfiles, i+1)
+			inputfiles = removeIndex(inputfiles, i)
+			i = i - 1
+		} else if inputfiles[i] == "-P" || inputfiles[i] == "--private-key-path" {
+			cipherValue.RsaPrivateKeyPath = inputfiles[i+1]
+			inputfiles = removeIndex(inputfiles, i+1)
+			inputfiles = removeIndex(inputfiles, i)
+			i = i - 1
 		}
 	}
-
-	cipherValue.VerboseMode = VerboseMode
 
 	for key := range inputfiles {
 		inputfile := inputfiles[key]
@@ -127,23 +137,24 @@ func removeIndex(slice []string, index int) []string {
 }
 
 func showHelp() {
-	fmt.Println(`
-Usage: rsaconfigcipher [OPTION]... [FILE]...
-
-	-v, --verbose              explain what is being done
+	fmt.Println(
+		`Usage: rsaconfigcipher [OPTION]... [FILE]...
+  -p <file>, --public-key-path <file>      path of public key
+  -P <file>, --private-key-path	<file>     path of private key
+  -v, --verbose              explain what is being done
   -h, --help                 display this help and exit
-	    --version              output version information and exit
-	`)
+      --version              output version information and exit
+In case of bug, please report:
+<https://github.com/juusechec/RSAConfigCipher>.`)
 }
 
 func showVersion() {
-	fmt.Println(`
-rsaconfigcipher (juusechec Tools) 1.1.0
+	fmt.Println(
+		`rsaconfigcipher (juusechec Tools) 1.2.0
 Copyright (C) 2017 Jorge Ulises Useche Cuellar.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
-Written by juusechec.
-	`)
+Written by juusechec.`)
 }

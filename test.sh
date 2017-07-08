@@ -16,6 +16,33 @@ rm -rf example_config.{yml,php}
 ./rsaconfigcipher --verbose *.rsa
 rm -rf example_config.{yml,php}
 
+./rsaconfigcipher --verbose *.rsa -p keys/rsakey.pem.pub
+rm -rf example_config.{yml,php}
+
+./rsaconfigcipher --verbose *.rsa -P keys/rsakey.pem
+rm -rf example_config.{yml,php}
+
+./rsaconfigcipher --verbose *.rsa -p keys/rsakey.pem.pub -P keys/rsakey.pem
+rm -rf example_config.{yml,php}
+
+./rsaconfigcipher -p keys/rsakey.pem.pub *.rsa
+rm -rf example_config.{yml,php}
+
+./rsaconfigcipher -P keys/rsakey.pem *.rsa
+rm -rf example_config.{yml,php}
+
+./rsaconfigcipher -p keys/rsakey.pem.pub -P keys/rsakey.pem *.rsa
+rm -rf example_config.{yml,php}
+
+./rsaconfigcipher --public-key-path keys/rsakey.pem.pub *.rsa
+rm -rf example_config.{yml,php}
+
+./rsaconfigcipher --private-key-path keys/rsakey.pem *.rsa
+rm -rf example_config.{yml,php}
+
+./rsaconfigcipher --public-key-path keys/rsakey.pem.pub --private-key-path keys/rsakey.pem *.rsa
+rm -rf example_config.{yml,php}
+
 ./rsaconfigcipher -h
 ./rsaconfigcipher --help
 
