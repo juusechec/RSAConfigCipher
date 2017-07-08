@@ -45,12 +45,12 @@ func main() {
 			cipherValue.RsaPublicKeyPath = inputfiles[i+1]
 			inputfiles = removeIndex(inputfiles, i+1)
 			inputfiles = removeIndex(inputfiles, i)
-			i = i - 1
+			i = i - 1 // Only one for every removeIndex(, i)
 		} else if inputfiles[i] == "-P" || inputfiles[i] == "--private-key-path" {
 			cipherValue.RsaPrivateKeyPath = inputfiles[i+1]
 			inputfiles = removeIndex(inputfiles, i+1)
 			inputfiles = removeIndex(inputfiles, i)
-			i = i - 1
+			i = i - 1 // Only one for every removeIndex(, i)
 		}
 	}
 
