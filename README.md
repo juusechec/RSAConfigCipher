@@ -64,14 +64,14 @@ go build -o rsaconfigcipher decrypt_files.go
 ## Install as normal user application
 For normal user programs not managed by the distribution package.
 ```bash
-wget "https://github.com/juusechec/RSAConfigCipher/releases/download/v1.2.0/rsaconfigcipher" && chmod +x rsaconfigcipher && sudo mv rsaconfigcipher /usr/local/bin/
+wget "https://github.com/juusechec/RSAConfigCipher/releases/download/v1.3.0/rsaconfigcipher" && chmod +x rsaconfigcipher && sudo mv rsaconfigcipher /usr/local/bin/
 ```
 
 ## Alternative install
 Its important because sometimes root user haven't */usr/local/bin/* in *PATH*
 environment variable.
 ```bash
-wget "https://github.com/juusechec/RSAConfigCipher/releases/download/v1.2.0/rsaconfigcipher" && chmod +x rsaconfigcipher && sudo mv rsaconfigcipher /usr/bin/
+wget "https://github.com/juusechec/RSAConfigCipher/releases/download/v1.3.0/rsaconfigcipher" && chmod +x rsaconfigcipher && sudo mv rsaconfigcipher /usr/bin/
 ```
 
 ## Uninstall

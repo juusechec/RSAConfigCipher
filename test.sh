@@ -50,6 +50,36 @@ rm -rf example_config.{yml,php}
 
 echo "I WANT TO ENCRYPT" | ./rsaconfigcipher
 
+echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -i
+
+CYPHERTEXT=$(echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -i -s)
+if [ ! $(echo "$CYPHERTEXT" | egrep "^{{%rsa:.*%}}") ]
+then
+  echo "Error, the cypher text is incorrect"
+  exit 1
+fi
+
+CYPHERTEXT=$(echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -is)
+if [ ! $(echo "$CYPHERTEXT" | egrep "^{{%rsa:.*%}}") ]
+then
+  echo "Error, the cypher text is incorrect"
+  exit 1
+fi
+
+CYPHERTEXT=$(echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -si)
+if [ ! $(echo "$CYPHERTEXT" | egrep "^{{%rsa:.*%}}") ]
+then
+  echo "Error, the cypher text is incorrect"
+  exit 1
+fi
+
+CYPHERTEXT=$(echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -s)
+if [ ! $(echo "$CYPHERTEXT" | egrep "^{{%rsa:.*%}}") ]
+then
+  echo "Error, the cypher text is incorrect"
+  exit 1
+fi
+
 rm -rf ./rsaconfigcipher
 
 echo "Test Complete Successfully"

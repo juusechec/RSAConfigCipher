@@ -1,17 +1,20 @@
 package main
 
 import (
-	"./cipherValue"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"regexp"
 	"strings"
+
+	"./cipherValue"
 )
 
 var (
 	// VerboseMode It's used to control verbose mode
-	VerboseMode = false
+	VerboseMode     = false
+	InteractiveMode = false
+	SilentMode      = false
 )
 
 func main() {
@@ -22,8 +25,8 @@ func main() {
 		fmt.Println("Execute with rsa archive(s) name(s) as param(s):")
 		execFilename := os.Args[0]
 		fmt.Println(execFilename, "example_config.php.rsa")
-		readPrompt()
-		return
+		fmt.Println("Use param --help for more options.")
+		InteractiveMode = true
 	}
 
 	inputfiles := os.Args[1:]
@@ -41,17 +44,36 @@ func main() {
 		} else if inputfiles[i] == "--version" {
 			showVersion()
 			os.Exit(0)
-		} else if inputfiles[i] == "-p" || inputfiles[i] == "--public-key-path" {
+		} else if inputfiles[i] == "--public-key-path" || inputfiles[i] == "-p" {
 			cipherValue.RsaPublicKeyPath = inputfiles[i+1]
 			inputfiles = removeIndex(inputfiles, i+1)
 			inputfiles = removeIndex(inputfiles, i)
 			i = i - 1 // Only one for every removeIndex(, i)
-		} else if inputfiles[i] == "-P" || inputfiles[i] == "--private-key-path" {
+		} else if inputfiles[i] == "--private-key-path" || inputfiles[i] == "-P" {
 			cipherValue.RsaPrivateKeyPath = inputfiles[i+1]
 			inputfiles = removeIndex(inputfiles, i+1)
 			inputfiles = removeIndex(inputfiles, i)
 			i = i - 1 // Only one for every removeIndex(, i)
+		} else if inputfiles[i] == "--initeractive" || inputfiles[i] == "-i" {
+			InteractiveMode = true
+			inputfiles = removeIndex(inputfiles, i)
+			i = i - 1 // Only one for every removeIndex(, i)
+		} else if inputfiles[i] == "--silent" || inputfiles[i] == "-s" || inputfiles[i] == "-si" || inputfiles[i] == "-is" {
+			InteractiveMode = true
+			SilentMode = true
+			inputfiles = removeIndex(inputfiles, i)
+			i = i - 1 // Only one for every removeIndex(, i)
 		}
+	}
+
+	if InteractiveMode {
+		readPrompt()
+		os.Exit(0)
+	}
+
+	if len(inputfiles) == 0 {
+		fmt.Println("No input files. Use param --help for more options.")
+		os.Exit(0)
 	}
 
 	for key := range inputfiles {
@@ -123,11 +145,15 @@ func getFilename(filename string) string {
 }
 
 func readPrompt() {
-	fmt.Print("Enter text to encrypt:\n")
+	if !SilentMode {
+		fmt.Print("Enter text to encrypt:\n")
+	}
 	var input string
 	fmt.Scanln(&input)
 	ciphertext, _ := cipherValue.EncryptValue(input)
-	fmt.Print("The encrypted text is:\n")
+	if !SilentMode {
+		fmt.Print("The encrypted text is:\n")
+	}
 	ciphertext = "{{%rsa:" + ciphertext + "%}}\n"
 	fmt.Print(ciphertext)
 }
@@ -141,6 +167,8 @@ func showHelp() {
 		`Usage: rsaconfigcipher [OPTION]... [FILE]...
   -p <file>, --public-key-path <file>      path of public key
   -P <file>, --private-key-path	<file>     path of private key
+  -i, --interactive          interactive console
+  -s, --silent               silent mode, to recieve STDIN
   -v, --verbose              explain what is being done
   -h, --help                 display this help and exit
       --version              output version information and exit
@@ -150,7 +178,7 @@ In case of bug, please report:
 
 func showVersion() {
 	fmt.Println(
-		`rsaconfigcipher (juusechec Tools) 1.2.0
+		`rsaconfigcipher (juusechec Tools) 1.3.0
 Copyright (C) 2017 Jorge Ulises Useche Cuellar.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it.
