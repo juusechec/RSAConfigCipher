@@ -12,11 +12,11 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: a0uZEIiWoruHLPajpvpXCl4cz6QXjJdOihz61lsQCmdrjb8zGh9XJ1maALQsjWcWt0/p1xUma3JmW2KisD/nW1kCzE8HRw5dFhEjf+Vo1aSyr52cNRd81I3fFGLdPICeQSwC06LgJLN5yFhKsKYM12daI8p34HddMoKyp28KM3mLNXpCY8iU2TTW5Cj9PS3Ps10jsPnG6QA8LOjiLaoqQGCqi5mesI/3aqZ8VpFbzcu1hQbDwtj9sY4HS1vi6byq/8KMs28SH/2BkJqXvkjMO8EKJyo9wa54j9qlgzhd7Pn4qj5fiFVuR4rnT66fwdSdfkzdLgxOuZVO9Q1BypP+d6FYhsUIIdMVsKqCexoeRQLeAvIhaRtTeIOHenFbL5V2WnabWda4QKZVBNRtjXRGPCKWfe8srx+lJMLgdo9OxaGknFJtclqbHPnb43w67O8NqNjT6lNlSr7jmxE5IYuf91XYmQ65d6GcRHD5iMcx0QhFiOUVxF14jEHTpvDl/m4HS/tTYi6fw0zdt+RzXYGsKu6vPts4RD2Sp3srj6DGYWUbBlGKVwjeZdq405fFz6srL9uBqSI8gctZ2ZGDl3LQ21BcwR8nludvZSRBgQFNjH4A4Nf8aMIC73sknOsAU6/X1AkwHVLiZRk4DQzDwg8sLJd6VT7nf3nIT7vMuELjqX8=
+    # generated with $ travis encrypt GITHUB_TOKEN="FROM_USER_JUUSECHEC" # https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+    # or with $ /usr/lib64/ruby/gems/2.1.0/gems/travis-1.8.8/bin/travis setup releases --force
+    secure: p4zuA22phK6dI9abSOleQd1mh9EHqjFffVTNqdwGJ5V1FU9+9bOG+gSaCtmePYN7X8Pmhry4eyOrokPon0dO+DGJoEIQDZrTBFvHJ4fa+TIAN/nh29ss2oPfpe3G8ueh1gmmchuCDfe6ry7CGAJXTmCW1sb8jUR7oYy35iEC2elBEb5iI3FRyZQhr1+dtmP9qK4yOUYNUsNf4QrpIbMDUCdmlbM7djzWCzYHLfkXbMlNa3AlpSvbIG93t//K33oOZR8GIiPi4BGr/SQL32oU95HMDtQQ5GG5t/mP7wSIXPsXTrNsiHI4muvcHBfL4KLlIYcl5LbRU8hLzTgedw27DSmNXxr3cVrMhAI6u0tgwNFnF5K00+bfueFMStGEFbyA1tDDFyJ1IZU6qKzKT27+OJoujKo9PdPDWtKzPAkomuVGrickymD1cvADbGjQ3/x5tXLMjGQ4Wa7wmgWpSqsFFZVHzfIKT8BkKQXShjpddpFpg1V389VdtVKqLyjx+MGagC2jT6IENWnh4KZ2bOeRBVJ0kDZtVDBpUc1u0yWyImaEjjKQvN/x3X3sxA9Eveukf9xXf8D6gnyNWtpQt7LgQx84Rz5JGrHGBLcTu0QMAxFehLbjhQvl91pAXWwfOFdAe+vLDkJGj2GznhyXVo1d4b7YIDXSDKjoq0GAOP7XxlE=
   file:
   - rsaconfigcipher
   - rsaconfigcipher.exe
-  skip_cleanup: true
   on:
     repo: juusechec/RSAConfigCipher
-    tags: true
