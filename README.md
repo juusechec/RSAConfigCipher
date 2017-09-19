@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/juusechec/RSAConfigCipher.svg?branch=master)](https://travis-ci.org/juusechec/RSAConfigCipher)
 [![Go Report Card](https://goreportcard.com/badge/github.com/juusechec/RSAConfigCipher?branch=master)](https://goreportcard.com/report/github.com/juusechec/RSAConfigCipher)
+[![Release](https://img.shields.io/github/release/juusechec/RSAConfigCipher.svg)](https://github.com/juusechec/RSAConfigCipher/releases)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 # RSAConfigCipher
