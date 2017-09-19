@@ -20,3 +20,4 @@ deploy:
   - rsaconfigcipher.exe
   on:
     repo: juusechec/RSAConfigCipher
+    tags: true
