@@ -18,6 +18,7 @@ deploy:
   file:
   - rsaconfigcipher
   - rsaconfigcipher.exe
+  skip_cleanup: true
   on:
     repo: juusechec/RSAConfigCipher
     tags: true
