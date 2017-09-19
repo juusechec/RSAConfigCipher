@@ -8,6 +8,8 @@ go:
 
 script:
 - bash test.sh
+- GOOS=linux GOARCH=amd64 go build -o rsaconfigcipher decrypt_files.go
+- GOOS=windows GOARCH=amd64 go build -o rsaconfigcipher.exe decrypt_files.go
 
 deploy:
   provider: releases
@@ -15,8 +17,10 @@ deploy:
     # generated with $ travis encrypt GITHUB_TOKEN="FROM_USER_JUUSECHEC" # https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
     # or with $ /usr/lib64/ruby/gems/2.1.0/gems/travis-1.8.8/bin/travis setup releases --force
     secure: TW9d1Gf7myoEMqryoSwnJA1FoAJhfgHGTEvpa1qL4T9soj97PD4VolU7ez/6D1hY9srSHBL4kx9tbahXsKwNWK74RAEP4ORuecL7BLnn20MB8tWg6ebucC9nHKnXu2maRfjks2A1Q0niySCsZoD3bhD5HrrF0swydbDxxfvwJU0UNyqbLR0YtATjZPgbXen4qt+mYJckMwI8RkiotBlvePsYPlL4nFq6oU6TofFtYTEz8yI+H5nTXezn19N2NWLxAqSsKs7pklYxFyTn2Wp6ycCmxfR/xW8WKECFriHWlOPj70Gvm6TnuUr9RcGgcfFKGpZSbo2cVieHrv8t7qTgYkFRMroxb1xMuri861SJVT2/QzJrKnxvRtFUE86RMFY/CkfPFEp2WhEbejoFWWkutKVT2pVFYmvAb5W5eGZP+2IeNIdaqGuBTHleeo2br+CaU3/U0g5KljtKh9iIazhBG7SPTcsLrKGe7YRpYJU2ZZ096DMppWaOJxCBtOk3sA1lDB8JL/tRFDgJVLv9wgKMfQlRMvwaEUpAjgH/Vd2LXz6IPxOGvX3Z98cf7WUoE2ayFqjUV2gXxoeZ8QjclWbgRUqFR0awzi3bjgo5QasQh4Wv5RGI9h02mvD4VE+2qqzGQK/zeF/GkpLOvVzQ23+Ob4feyXBe7TCvT6t7oJusxQQ=
-  file: rsaconfigcipher
+  file:
+    - "rsaconfigcipher"
+    - "rsaconfigcipher.exe"
   skip_cleanup: true
   on:
     repo: juusechec/RSAConfigCipher
-  tags: true
+    tags: true
