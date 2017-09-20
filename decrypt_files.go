@@ -170,7 +170,7 @@ func showHelp() {
   -p <file>, --public-key-path <file>      path of public key
   -P <file>, --private-key-path	<file>     path of private key
   -i, --interactive          interactive console
-  -s, --silent               silent mode, to recieve STDIN
+  -s, --silent               silent mode, to receive STDIN
   -v, --verbose              explain what is being done
   -h, --help                 display this help and exit
       --version              output version information and exit
@@ -180,7 +180,7 @@ In case of bug, please report:
 
 func showVersion() {
 	fmt.Println(
-		`rsaconfigcipher (juusechec Tools) 1.3.0
+		`rsaconfigcipher (juusechec Tools) 1.3.1
 Copyright (C) 2017 Jorge Ulises Useche Cuellar.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it.
