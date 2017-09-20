@@ -12,9 +12,11 @@ import (
 
 var (
 	// VerboseMode It's used to control verbose mode
-	VerboseMode     = false
+	VerboseMode = false
+	// InteractiveMode It's used as flag to permit cipher values with user interaction
 	InteractiveMode = false
-	SilentMode      = false
+	// SilentMode It's used as flag to permit cipher values without show any console message
+	SilentMode = false
 )
 
 func main() {
