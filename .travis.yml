@@ -9,6 +9,10 @@ script:
 - bash test.sh
 - GOOS=linux GOARCH=amd64 go build -o rsaconfigcipher decrypt_files.go
 - GOOS=windows GOARCH=amd64 go build -o rsaconfigcipher.exe decrypt_files.go
+- wget https://github.com/upx/upx/releases/download/v3.94/upx-3.94-amd64_linux.tar.xz
+- tar xf upx-3.94-amd64_linux.tar.xz
+- ./upx-3.94-amd64_linux/upx rsaconfigcipher
+- ./upx-3.94-amd64_linux/upx rsaconfigcipher.exe
 deploy:
   provider: releases
   api_key:

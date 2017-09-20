@@ -80,6 +80,20 @@ then
   exit 1
 fi
 
+CYPHERTEXT=$(echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -s -p keys/rsakey.pem.pub)
+if [ ! $(echo "$CYPHERTEXT" | egrep "^{{%rsa:.*%}}") ]
+then
+  echo "Error, the cypher text is incorrect"
+  exit 1
+fi
+
+CYPHERTEXT=$(echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -is -p keys/rsakey.pem.pub)
+if [ ! $(echo "$CYPHERTEXT" | egrep "^{{%rsa:.*%}}") ]
+then
+  echo "Error, the cypher text is incorrect"
+  exit 1
+fi
+
 rm -rf ./rsaconfigcipher
 
 echo "Test Complete Successfully"
