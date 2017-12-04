@@ -80,3 +80,5 @@ wget "https://github.com/juusechec/RSAConfigCipher/releases/download/v1.3.1/rsac
 sudo rm /usr/local/bin/rsaconfigcipher # for normal user
 sudo rm /usr/bin/rsaconfigcipher # for alternative install
 ```
+## Simple Tutorial
+[![asciicast](https://asciinema.org/a/151010.png)](https://asciinema.org/a/151010)
