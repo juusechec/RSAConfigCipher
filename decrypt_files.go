@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -150,8 +151,18 @@ func readPrompt() {
 	if !SilentMode {
 		fmt.Print("Enter text to encrypt:\n")
 	}
+
+	// this read more than 1 word
+	// https://stackoverflow.com/questions/34647039/how-to-use-fmt-scanln-read-from-a-string-separated-by-spaces
 	var input string
-	fmt.Scanln(&input)
+	scanner := bufio.NewScanner(os.Stdin)
+	if scanner.Scan() {
+		input = scanner.Text()
+	}
+	if err := scanner.Err(); err != nil {
+		os.Exit(1)
+	}
+
 	ciphertext, _ := cipherValue.EncryptValue(input)
 	if !SilentMode {
 		fmt.Print("The encrypted text is:\n")
