@@ -52,6 +52,10 @@ echo "I WANT TO ENCRYPT" | ./rsaconfigcipher
 
 echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -i
 
+printf "I WANT TO ENCRYPT" | ./rsaconfigcipher
+
+printf "I WANT TO ENCRYPT" | ./rsaconfigcipher -i
+
 CYPHERTEXT=$(echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -i -s)
 if [ ! $(echo "$CYPHERTEXT" | egrep "^{{%rsa:.*%}}") ]
 then
