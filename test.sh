@@ -70,6 +70,30 @@ printf "I WANT TO ENCRYPT" | ./rsaconfigcipher
 
 printf "I WANT TO ENCRYPT" | ./rsaconfigcipher -i
 
+# validate encrypt-decrypt a string
+printf "I WANT TO ENCRYPT" | ./rsaconfigcipher -s > constructed_config.txt.rsa
+./rsaconfigcipher constructed_config.txt.rsa
+CYPHERTEXT=$(cat constructed_config.txt)
+if [ ! "$CYPHERTEXT" == "I WANT TO ENCRYPT" ]
+then
+  echo "Error, the cypher text is not equals"
+  exit 1
+fi
+rm -rf constructed_config.txt{,.rsa}
+
+# validate encrypt-decrypt a long text
+
+while IFS='' read -r line || [[ -n "$line" ]]; do
+    echo "$line" | ./rsaconfigcipher -s >> constructed_config.txt.rsa
+done < "example_long_value.txt"
+./rsaconfigcipher constructed_config.txt.rsa
+if [ ! "$(md5sum constructed_config.txt | awk '{ print $1 }')" == "$(md5sum example_long_value.txt | awk '{ print $1 }')" ]
+then
+  echo "Error, the cypher text of files is not equals"
+  exit 1
+fi
+rm -rf constructed_config.txt{,.rsa}
+
 CYPHERTEXT=$(echo "I WANT TO ENCRYPT" | ./rsaconfigcipher -i -s)
 if [ ! $(echo "$CYPHERTEXT" | egrep "^{{%rsa:.*%}}") ]
 then

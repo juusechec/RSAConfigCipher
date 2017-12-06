@@ -1,0 +1,46 @@
+# link: http://www.charactercountonline.com/
+
+This text cannot contain a line with more than 190 characters
+panic: Error from encryption: crypto/rsa: message too long for RSA public key size
+
+0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+
+# link: https://es.lipsum.com/
+
+El pasaje estándar Lorem Ipsum, usado desde el año 1500.
+
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+anim id est laborum."
+
+# link: https://es.wikipedia.org/wiki/The_quick_brown_fox_jumps_over_the_lazy_dog
+
+The quick brown fox jumps over the lazy dog (El veloz zorro marrón salta sobre el perro perezoso) es un pangrama en inglés. Tiene 35 letras y
+utiliza todas las del alfabeto inglés (26). Se usa principalmente para examinar a los mecanógrafos y para probar los teclados de las computadoras,
+pues es corto y fácil de recordar.
+
+La primera aparición conocida de esta frase fue en The Michigan School Moderator, un periódico que presentaba noticias y sugerencias para los profesores.
+
+# link: https://passwordsgenerator.net/
+
+qGsB^K/>k.F!^<=Zt=5A]Z5*fh:5&g-k.@)b_(d_}d\5!te`p^,>hRa[[W-YS6]w>^JuRDrxT)QCKkdSw}(j;DQ-)qL;y\Ee'deP-cNQ'\Z*X};c'9Zw#Z,E/Jrp?me.h^Lkyk8&zw;vP\*`4
+\8YgSL`J3kFX-rd?xZhkA%?nc[^w__MHq:\GjXNRJ\r@n*V%.U>C[e~V)(n#@<XC#Tdnj^6vc3C*B\9X$%X=M'[LqKT*bpBAQEe%kL?2=w2y}@pJTcX&N@zG[Q\6md&z$LEEr[f"GujZ/CM7C
+@Z~t>_4tu(`yqh9:*WzgCvP6j'ze57Qh;]"R>~6_SD=YB<ez]]($7\>k"KSLm2JVE"=4(]q}:bgs}6[hhJ,dvqP8t$bz%-{)j`#@2R_%6,vZ25ZxL[Y]3/WCBMS,>ECH"Ms(j:.>ZWN%MaZjL
+?`ZE$&Nk5!s&5_L)'L<PuaHp8X:<ap><Mb?TE%,@3G'BX8&m;)C8eW{DQ4S6B]EYCV\xenmpEq@`4)/awP<WLgK*.JH8hxUT98PA2fTSyrnN(Zr_\EmMu^_PNN.YF~vLF\6D2h?k>Z99@>yeh
+GR5RWd;+Sh}2wjPz/f<Lr>J"<r3C`@N&t{4(f<NG7^7[QrJ5j'.;B9=&@`!"VV=]9Z_B&UHffNa;[zJM,">^Ez%K4R4e>;\e;?4b,A6c*U7,X~K+uGfpe(B)\Bp!y]4JHP=Vy$v$#A^3\;W@K
+z'qU;y~';E?C=j[Sahe$qm/4A^B\av3RsLy+_j2XKVkd^7Q%h9})9"T)]V,,AK$EExcLj+]m+=^;@Fr_xt\]6h}<u?hUj&_rKAqA=pJSh#v]vGpDS>xrNX.X/TU@W{\3>RCK2c_BeXt,7z`p]
+#Q4A=`:F}6Kd+@t!DQyY.@=LTyeeAv#uRg-QtJpp'=uWnDS5Y~Z7',V(h"P8*ppm^W7gQ\N#fw,%BMK7!<>.XMCn@,'QA}x/D>bGBSV/BfE>U[w%>=X.)<yx&pVB*-n"_=dxW{`@Hu[]3t9zV
+{3#`7gavw4n^JLBr"frXbG5Z;ehXD[y}kM6jWuwu,?&xEqXn\5tsmQ;q)Wyt!Pz7SV;\AtmTR@y5dt:/f\mC*7}JA\\faa:s5-bX]FX'[b9D-sj[cy*#Z]//Ew4]/TjES[:dHR!&Fq[2_4$mt
+dpZZ8qmtsT=m_Y)Y+RLF/wMs96CXs,Z"BvBpyg7Y)vf8d}.gdT%(_>6R**#3c}wA4eXx<r)fUzzuZ(WycWn8k)\@$v$(T`L@dwrycyq;,\ns,LcBH>5{gk)/}h\^[.]=3rq/3aPh"k*5<\<jV
+;`$;m{c:.-^#p<V`[;/"7[P^MJ}FUpc;hvK@"[(sdaNpN}*-BYGY`U6Y>kFG275Dvy*rg=E(Q%;=B/w9F.6'ZD(5vaK-_m=>"2]'~/G2b]3kdQJfLj)F!]m9UY8LHE[r#vyP4y4=.wx!gVxt4
+(!(SAq[\DJSE+j=3KcC[3*&";zc(qD;]PHG`&)FN$MQsrf-YQ$Hk<MW3,5,@VcS[vXPP@`pZ<S9AdEU{x//D;S=x4K;Cv*S#%-ZS!rCpdtf6v;Rt@J%=sX(V~PT")s3Y_&GjkfuvzxXrq^?D$
+QHC*+[Eeg("]q]$k(>M`r;W{m@y2{8XRnX;e\%5`4@x,cD]W/ns_H,~-XB~}ak/[Y"HZD?@,px!$9V4.nY-$;G}4L=`8p@T]:h*}`j8aZ68,"n%h%`dq(@ZLj&;<Sd%YcLf:K}:K$uCC8HsVS
+gaY2BRg$bnb^s9%L6P;?-}(Dm]>->))ULLPYrH.BN//fa{?Zv,<GqnA-L=PG"mpWDy,_)6/dBpqGq9RS@~"]BBnGkMd2"[>{V2FfGM7%\"JL!8~=t_M_rEg2@XE+L2&q)D$4b:Q"`}-_{v/`{
+(M["]\-+2Eu.Z$(9AVay$<kp}au=/yw/vzZjewXmn_9A2ZWmQ9C)dE#D!~EFYA!$z:N\]3>G+tHhM+(_Y:+agvn=3ZMp</YnHJ5qAH3fe`qqdr/F!#*J5duQG`m-#>S?7b(+.pMf:")]U@S&2
+w{.XneZ#{J)RhE:Crp
+
+# link: https://randomkeygen.com/
+
+G:>!QqSb>1Zi!KUpR#gr.BZ:gfajC8>3xm}V,E:`k%0;aWR/|mF+u3NWv$8|z)s
+~#a<uSV0jpg.g$)GVlKvw>`,N;>mfXV&Uq,8#Z'%RvfaiF,rkVr-3RGmMQ2ZsZy
