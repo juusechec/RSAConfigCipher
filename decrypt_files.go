@@ -191,7 +191,7 @@ In case of bug, please report:
 
 func showVersion() {
 	fmt.Println(
-		`rsaconfigcipher (juusechec Tools) 1.3.1
+		`rsaconfigcipher (juusechec Tools) 1.3.2
 Copyright (C) 2017 Jorge Ulises Useche Cuellar.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it.
